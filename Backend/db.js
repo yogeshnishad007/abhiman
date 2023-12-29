@@ -10,17 +10,10 @@ const pollSchema = mongoose.Schema({
     endDate:String,
     minReward: Number,
     maxReward: Number,
-    questions: [
-      {
-        type: String, 
-        text: String,
-        options: [String],
-      },
-    ],
   },{
     versionKey: false
   });
-  
+
 const Poll = mongoose.model('Poll', pollSchema);
 
 module.exports = {
