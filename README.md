@@ -90,7 +90,7 @@ To access the home page, navigate to [https://lovely-moccasins-eel.cyclic.app/](
         "title": "Updated Title",
        
     }
-    ]
+    
     ```
 
 #### Delete a Data
@@ -101,10 +101,11 @@ To access the home page, navigate to [https://lovely-moccasins-eel.cyclic.app/](
 
     Example response:
     ```json
-   {
+     {
     "message": "Poll details delete successfully.",
     "PollId": "658e993db0bc73f03c5a784d"
-}
+    }
+
     ```
 
 Make sure to run the application locally (http://localhost:4000) to test these endpoints.
