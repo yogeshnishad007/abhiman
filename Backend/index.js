@@ -22,8 +22,8 @@ app.post('/post/polls', async (req, res) => {
         const newPoll = new Poll({ title, category, startDate, endDate, minReward, maxReward });
         const savedPoll = await newPoll.save();
         res.send({ pollId: savedPoll._id, message: 'Poll created successfully.' });
-      } catch (error) {
-        res.status(500).json({ error: 'Internal Server Error' });
+      } catch (err) {
+        res.status(500).json({ error: 'Error from Post data', Details:err.message });
       }
     });
 
@@ -55,9 +55,9 @@ app.post('/post/polls', async (req, res) => {
         });
     
         res.json(formattedPolls);
-      } catch (error) {
-        console.error(error);
-        res.status(500).json({ error: 'Internal Server Error', details: error.message });
+      } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: ' Error from Getting data', details: err.message });
       }
     });
 
@@ -86,7 +86,7 @@ app.patch('/update/polls/:pollId', async (req, res) => {
           await Poll.findByIdAndDelete(ID);
           res.json({ message: 'Poll details delete successfully.',PollId:ID });
       } catch (error) {
-          console.log(error);  // <-- Corrected from console.log(err)
+          console.log(error);  
           res.status(500).json({ error: error.message });
       }
   });
